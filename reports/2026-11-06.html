@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>KOL观点日报 2026-11-06（含大宗商品）</title>
+<meta name="description" content="美股科技/AI急跌外溢加密；油价高波动；黄金偏强。短线宜降杠杆。"/>
+<style>
+:root {
+  --bg: #0f1115;
+  --paper: #171a21;
+  --text: #e8eaed;
+  --muted: #9aa0a6;
+  --border: #2a2f3a;
+  --red: #c62828;
+  --green: #2e7d32;
+  --orange: #ed6c02;
+  --card: #1c212b;
+  --shadow: 0 1px 0 rgba(255,255,255,.04) inset, 0 8px 24px rgba(0,0,0,.25);
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #f4f5f7;
+    --paper: #ffffff;
+    --text: #1a1d23;
+    --muted: #5f6368;
+    --border: #e3e6eb;
+    --card: #ffffff;
+    --shadow: 0 1px 2px rgba(0,0,0,.06), 0 8px 24px rgba(0,0,0,.04);
+  }
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "PingFang SC", "Noto Sans SC", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.55;
+}
+a { color: inherit; }
+.wrap { max-width: 1100px; margin: 0 auto; padding: 24px 16px 64px; }
+header.site {
+  display: flex; flex-wrap: wrap; gap: 12px; align-items: baseline;
+  justify-content: space-between; margin-bottom: 28px;
+}
+header.site h1 { font-size: 1.35rem; margin: 0; font-weight: 700; letter-spacing: .01em; }
+header.site p { margin: 0; color: var(--muted); font-size: .92rem; }
+.nav a { color: var(--muted); text-decoration: none; margin-left: 14px; font-size: .9rem; }
+.nav a:hover { color: var(--text); }
+.card {
+  background: var(--card); border: 1px solid var(--border); border-radius: 16px;
+  padding: 18px 18px 16px; box-shadow: var(--shadow);
+}
+.grid { display: grid; gap: 14px; }
+.grid-2 { grid-template-columns: repeat(2, minmax(0,1fr)); }
+.grid-4 { grid-template-columns: repeat(4, minmax(0,1fr)); }
+@media (max-width: 900px) {
+  .grid-4 { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .grid-2 { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  .grid-4 { grid-template-columns: 1fr; }
+}
+h2 { font-size: 1.05rem; margin: 28px 0 12px; }
+h3 { font-size: .95rem; margin: 0 0 10px; }
+.muted { color: var(--muted); font-size: .88rem; }
+.chip {
+  display: inline-block; padding: 2px 10px; border-radius: 999px;
+  font-size: 12px; font-weight: 700; line-height: 20px; letter-spacing: .02em;
+}
+.chip-多 { background: var(--red); color: #fff; }
+.chip-空 { background: var(--green); color: #fff; }
+.chip-中性, .chip-波动 { background: var(--orange); color: #fff; }
+.chip-off { background: var(--orange); color: #fff; }
+.chip-on { background: var(--red); color: #fff; }
+.list { margin: 8px 0 0; padding-left: 1.1rem; }
+.list li { margin: 4px 0; }
+.levels { width: 100%; border-collapse: collapse; font-size: .9rem; }
+.levels td { padding: 6px 0; border-bottom: 1px solid var(--border); vertical-align: top; }
+.levels td:first-child { color: var(--muted); width: 42%; }
+.links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+.links a {
+  display: inline-block; padding: 6px 10px; border-radius: 10px;
+  border: 1px solid var(--border); text-decoration: none; font-size: .82rem; color: var(--muted);
+}
+.links a:hover { color: var(--text); border-color: var(--muted); }
+.hero { display: grid; grid-template-columns: 1.4fr .9fr; gap: 14px; }
+@media (max-width: 800px) { .hero { grid-template-columns: 1fr; } }
+.gauge { width: 100%; max-width: 320px; }
+.proscons { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+@media (max-width: 700px) { .proscons { grid-template-columns: 1fr; } }
+.pro, .con { border-radius: 16px; border: 1px solid var(--border); padding: 14px 16px; background: var(--card); }
+.pro h3 { color: var(--red); }
+.con h3 { color: var(--green); }
+.bars { display: flex; flex-direction: column; gap: 8px; margin-top: 8px; }
+.bar-row { display: grid; grid-template-columns: 88px 1fr 48px; gap: 8px; align-items: center; font-size: .85rem; }
+.bar-track { height: 10px; background: var(--border); border-radius: 999px; overflow: hidden; }
+.bar-fill { height: 100%; background: var(--red); border-radius: 999px; }
+.seg { display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 0 12px; }
+.seg button {
+  border: 1px solid var(--border); background: transparent; color: var(--muted);
+  border-radius: 999px; padding: 6px 12px; cursor: pointer; font-size: .85rem;
+}
+.seg button.active, .seg button:hover { color: var(--text); border-color: var(--muted); }
+.kol { border-top: 1px solid var(--border); padding: 10px 0; }
+.kol .cat { color: var(--muted); font-size: .78rem; margin-bottom: 2px; }
+.kol .name { font-weight: 650; }
+.kol .point { color: var(--muted); font-size: .9rem; margin-top: 2px; }
+.report-item {
+  display: block; text-decoration: none; padding: 16px 18px; margin-bottom: 12px;
+  border-radius: 16px; border: 1px solid var(--border); background: var(--card);
+  box-shadow: var(--shadow);
+}
+.report-item:hover { border-color: var(--muted); }
+.report-item .top { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: space-between; }
+.report-item h2 { margin: 0; font-size: 1.05rem; }
+.footer { margin-top: 36px; color: var(--muted); font-size: .8rem; }
+.callout {
+  border-left: 3px solid var(--orange); padding: 10px 12px; margin: 10px 0;
+  background: color-mix(in srgb, var(--orange) 8%, transparent); border-radius: 0 10px 10px 0;
+}
+.quote {
+  margin: 12px 0 0; padding: 12px 14px; border-radius: 12px; border: 1px solid var(--border);
+  color: var(--muted); font-size: .9rem; font-style: italic;
+}
+.quote cite { display: block; margin-top: 8px; font-style: normal; font-size: .8rem; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="site">
+    <div>
+      <h1>KOL观点日报 2026-11-06（含大宗商品）</h1>
+      <p>图例：<span class="chip chip-多">多</span> <span class="chip chip-空">空</span> <span class="chip chip-波动">波动/中性</span>（A股惯例：红多绿空）</p>
+    </div>
+    <nav class="nav">
+      <a href="../index.html">全部日报</a>
+    </nav>
+  </header>
+
+  <section>
+    <h2>核心结论</h2>
+    <div class="hero">
+      <div class="card">
+        <div style="margin-bottom:8px"><span class="chip chip-波动">Risk-Off / 防守</span></div>
+        <p style="margin:0 0 8px;font-size:1.05rem;font-weight:600">美股科技/AI急跌外溢加密；油价高波动；黄金偏强。短线宜降杠杆。</p>
+        <div class="callout">42账号近36小时观点整合。科技/AI抛售+杠杆ETF放大；BTC跟跌。Brent在约93.55获支撑后反弹至约100，Phyrex自述约97.5再开空。金约4000–4100。数字均来自大V帖文。</div>
+        <p class="muted">样本：40/42 账号有帖，约 505 条。静默：CathieDWood、VitalikButerin</p>
+      </div>
+      <div class="card" style="display:flex;flex-direction:column;align-items:center;justify-content:center">
+        
+<svg class="gauge" viewBox="0 0 280 120" aria-hidden="true">
+  <path d="M20 100 A120 120 0 0 1 260 100" fill="none" stroke="currentColor" opacity=".15" stroke-width="16" stroke-linecap="round"/>
+  <path d="M20 100 A120 120 0 0 1 100 28" fill="none" stroke="#c62828" stroke-width="16" stroke-linecap="round" opacity=".85"/>
+  <path d="M100 28 A120 120 0 0 1 180 28" fill="none" stroke="#ed6c02" stroke-width="16" stroke-linecap="round" opacity=".9"/>
+  <path d="M180 28 A120 120 0 0 1 260 100" fill="none" stroke="#2e7d32" stroke-width="16" stroke-linecap="round" opacity=".85"/>
+  <line x1="140" y1="100" x2="210" y2="42" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="140" cy="100" r="6" fill="currentColor"/>
+  <text x="28" y="118" fill="currentColor" opacity=".55" font-size="11">风险偏好</text>
+  <text x="200" y="118" fill="currentColor" opacity=".55" font-size="11">防守</text>
+  <text x="105" y="78" fill="currentColor" font-size="13" font-weight="600">Risk-Off</text>
+</svg>
+        <p class="muted" style="margin:8px 0 0">风险偏好仪表</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>资产情绪板</h2>
+    <div class="grid grid-4">
+        <div class="card">
+          <h3>美股/科技/AI <span class="chip chip-空">空</span></h3>
+          <p class="muted" style="margin:0">Kobeissi、zerohedge、Cramer、qinbafrank、saylor（标普约−4.4%/纳指约−5.5%）</p>
+        </div>
+        <div class="card">
+          <h3>BTC/ETH <span class="chip chip-波动">波动</span></h3>
+          <p class="muted" style="margin:0">跟跌；Schiff喊卖；Phyrex/链上有抄底</p>
+        </div>
+        <div class="card">
+          <h3>原油 <span class="chip chip-波动">波动</span></h3>
+          <p class="muted" style="margin:0">Ole反弹≈100；Phyrex空≈97.5；HFI鞭打；Javier和谈</p>
+        </div>
+        <div class="card">
+          <h3>天然气 <span class="chip chip-空">空</span></h3>
+          <p class="muted" style="margin:0">JKemp：取暖需求远低于均值</p>
+        </div>
+        <div class="card">
+          <h3>黄金/白银 <span class="chip chip-多">多</span></h3>
+          <p class="muted" style="margin:0">Kitco、Schiff、Tavi；银相对分化</p>
+        </div>
+        <div class="card">
+          <h3>工业金属 <span class="chip chip-中性">中性</span></h3>
+          <p class="muted" style="margin:0">Ole：铜库存周增约3.67万吨至108.3万吨</p>
+        </div>
+        <div class="card">
+          <h3>农产品 <span class="chip chip-中性">中性</span></h3>
+          <p class="muted" style="margin:0">Ole：FAO月跌1.6%、年升5.9%</p>
+        </div></div>
+  </section>
+
+  <section>
+    <h2>大宗商品</h2>
+    <p class="muted">关键位来自帖文声称，非独立行情源。</p>
+    <div class="grid grid-2">
+        <div class="card">
+          <h3>原油 / 天然气</h3>
+          <table class="levels"><tr><td>Brent支撑(Ole)</td><td>≈93.55（200日均）</td></tr><tr><td>Brent反弹(Ole)</td><td>≈100</td></tr><tr><td>Phyrex空单</td><td>≈97.5 + 价差</td></tr><tr><td>气</td><td>需求弱·偏空</td></tr></table>
+          <ul class='list'><li>Ole：抛售偏仓位；和谈压价但航运/燃料风险仍在；BCOM本周或亏约4%</li><li>JKemp：馏分油库存跌破1亿桶（称较十年均值约−20%）；钻井温和</li><li>HFI：近月价差鞭打；Javier：卡塔尔斡旋伊朗</li><li>Kobeissi：柴油库存绝对低位——与空油并存张力</li></ul>
+          <div class="links"><a href="https://x.com/Ole_S_Hansen/status/2118596177599889567" target="_blank" rel="noopener">Ole · Brent≈100</a><a href="https://x.com/PhyrexNi/status/2118660222747353239" target="_blank" rel="noopener">Phyrex 空油</a><a href="https://x.com/JKempEnergy/status/2118308065552289820" target="_blank" rel="noopener">JKemp 馏分油</a><a href="https://x.com/JKempEnergy/status/2118667736343584975" target="_blank" rel="noopener">JKemp 气需求</a></div>
+        </div>
+        <div class="card">
+          <h3>贵金属</h3>
+          <table class="levels"><tr><td>现货金(帖文)</td><td>≈4000–4100</td></tr><tr><td>世行展望</td><td>金至2028仍&gt;4000</td></tr><tr><td>银</td><td>相对分化/回调风险</td></tr><tr><td>情绪</td><td>偏多</td></tr></table>
+          <ul class='list'><li>Kitco：股灾时金持盈、银回落；中期选举后历史统计被引用</li><li>Schiff：政治结果利多金银；或「再难低于4000」</li><li>Tavi：纳指大跌+金矿涨，类比2020/科网底部</li><li>Luke：原创少；转发港代币化黄金</li></ul>
+          <div class="links"><a href="https://x.com/KitcoNewsNOW/status/2118500948196680188" target="_blank" rel="noopener">Kitco 世行展望</a><a href="https://x.com/PeterSchiff/status/2118155528786579941" target="_blank" rel="noopener">Schiff 金&gt;4100</a><a href="https://x.com/TaviCosta/status/2118509535703056783" target="_blank" rel="noopener">Tavi 金矿</a><a href="https://x.com/PeterSchiff/status/2118385685367332919" target="_blank" rel="noopener">Schiff 利多金银</a></div>
+        </div>
+        <div class="card">
+          <h3>工业金属</h3>
+          <table class="levels"><tr><td>铜库存(Ole)</td><td>+3.67万吨 → 108.3万吨</td></tr><tr><td>结构</td><td>美库存集中 + 中国供应偏紧</td></tr><tr><td>情绪</td><td>中性</td></tr></table>
+          <ul class='list'><li>Ole：三大交易所监测库存周增</li><li>BurggrabenH：窗口内无品种方向性原创</li></ul>
+          <div class="links"><a href="https://x.com/Ole_S_Hansen/status/2118643760288452932" target="_blank" rel="noopener">Ole · 铜库存</a></div>
+        </div>
+        <div class="card">
+          <h3>农产品</h3>
+          <table class="levels"><tr><td>FAO食品指数</td><td>月−1.6% / 年+5.9%</td></tr><tr><td>橄榄油(Javier)</td><td>批发价约五年半低位</td></tr><tr><td>谷物喊单</td><td>窗口静默</td></tr></table>
+          <ul class='list'><li>仅有价格指数与橄榄油细分信息，无玉米/大豆/小麦方向喊单</li></ul>
+          <div class="links"><a href="https://x.com/Ole_S_Hansen/status/2118636486199234808" target="_blank" rel="noopener">Ole · FAO</a><a href="https://x.com/JavierBlas/status/2118671371924603302" target="_blank" rel="noopener">Javier · 橄榄油</a></div>
+        </div></div>
+  </section>
+
+  <section>
+    <h2>共识与分歧</h2>
+    <div class="proscons">
+      <div class="pro"><h3>较一致</h3><ul class='list'><li>风险资产：科技/AI急跌、杠杆放大、BTC跟跌</li><li>贵金属：政治冲击后偏多，金强于银</li><li>油价：高波动；和谈预期与库存/航运风险并存</li><li>商品指数：Ole 称本周大幅回撤</li></ul></div>
+      <div class="con"><h3>明显分歧</h3><ul class='list'><li>原油：Ole 支撑反弹 vs Phyrex 再空</li><li>馏分油紧平衡 vs 油价空头仓位</li><li>金矿相对表现看多 vs 普股抛售中也被砸</li><li>气需求弱 vs 油的地缘溢价不同步</li></ul></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>投资参考</h2>
+    <div class="grid grid-2">
+      <div class="card">
+        <h3>行动清单</h3>
+        <div class="callout">权益/加密维持防守。原油用「高波动+价差」跟踪（200日均支撑 vs ≈97.5 空单）。贵金属偏多但银回调风险更大。铜看库存。农产品仅有指数信息。</div>
+        <ul class='list'><li>催化：伊朗和谈、馏分油/气库存与取暖度日、Fed加息赔率（Ole称12月加息隐含≈31%）、数据中心政策</li><li>商品：优先 Brent–WTI 价差、曲线、库存事件；气看暖冬叙事</li><li>忌：追空杀跌式加杠杆；把 BTC 当避险</li></ul>
+      </div>
+      <div class="card">
+        <h3>关键位速查（美元·帖文）</h3>
+        <div class="bars">
+        <div class="bar-row">
+          <div>Brent支撑</div>
+          <div class="bar-track"><div class="bar-fill" style="width:2%"></div></div>
+          <div>93.55</div>
+        </div>
+        <div class="bar-row">
+          <div>Phyrex空</div>
+          <div class="bar-track"><div class="bar-fill" style="width:2%"></div></div>
+          <div>97.5</div>
+        </div>
+        <div class="bar-row">
+          <div>Brent反弹</div>
+          <div class="bar-track"><div class="bar-fill" style="width:2%"></div></div>
+          <div>≈100</div>
+        </div>
+        <div class="bar-row">
+          <div>金(下沿帖文)</div>
+          <div class="bar-track"><div class="bar-fill" style="width:100%"></div></div>
+          <div>≈4000</div>
+        </div></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>期权 / 0DTE / 期货</h2>
+    <div class="grid grid-2">
+      <div class="card">
+        <h3>股指期权 · 0DTE</h3>
+        <ul class='list'><li>杠杆 ETF 尾盘卖压（帖文估约420–520亿）</li><li>VIX/VVIX 与 QQQ 偏度跳升（SpotGamma）</li><li>注意 SPX −7% 熔断与 QQQ/NQ 规则差异</li></ul>
+      </div>
+      <div class="card">
+        <h3>商品期货</h3>
+        <ul class='list'><li>原油：200DMA≈93.55 vs 空单≈97.5 —— 关键带冲突即波动源</li><li>天然气：需求弱 → 与油截面分化</li><li>贵金属：金强银弱，留意金银比与矿股 beta</li></ul>
+        <blockquote class='quote'>Brent has recovered strongly to trade around USD 100 after a week-long slump found support at the 200-day moving average near USD 93.55.<cite>— Ole S Hansen · Brent</cite></blockquote>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>分人观点</h2>
+    <div class="seg" id="seg">
+      <button class="active" data-cat="全部">全部</button>
+      <button data-cat="大宗">大宗</button>
+      <button data-cat="美股">美股</button>
+      <button data-cat="加密">加密</button>
+      <button data-cat="中文">中文</button>
+    </div>
+    <div class="card" id="kols">
+        <div class="kol" data-cat="大宗">
+          <div class="cat">大宗</div>
+          <div class="name"><a href="https://x.com/Ole_S_Hansen" target="_blank" rel="noopener">Ole S Hansen</a></div>
+          <div class="point">全品类最完整：油反弹叙事、金盘整、铜库存、FAO、商品指数周亏约4%</div>
+        </div>
+        <div class="kol" data-cat="大宗">
+          <div class="cat">大宗</div>
+          <div class="name"><a href="https://x.com/PhyrexNi/status/2118660222747353239" target="_blank" rel="noopener">Phyrex</a></div>
+          <div class="point">操作型：再空 Brent≈97.5，侧重 Brent–WTI 价差</div>
+        </div>
+        <div class="kol" data-cat="大宗">
+          <div class="cat">大宗</div>
+          <div class="name"><a href="https://x.com/KitcoNewsNOW/status/2118500948196680188" target="_blank" rel="noopener">Kitco NEWS</a></div>
+          <div class="point">金约4000–4100；世行展望金至2028仍高于4000、银回调更深</div>
+        </div>
+        <div class="kol" data-cat="大宗">
+          <div class="cat">大宗</div>
+          <div class="name"><a href="https://x.com/PeterSchiff/status/2118155528786579941" target="_blank" rel="noopener">Peter Schiff</a></div>
+          <div class="point">民主党结果利多金银；金或站稳4000上方；空美股/BTC</div>
+        </div>
+        <div class="kol" data-cat="大宗">
+          <div class="cat">大宗</div>
+          <div class="name"><a href="https://x.com/TaviCosta/status/2118509535703056783" target="_blank" rel="noopener">Tavi Costa</a></div>
+          <div class="point">纳指大跌+金矿上涨，类比2020/科网底部节奏</div>
+        </div>
+        <div class="kol" data-cat="大宗">
+          <div class="cat">大宗</div>
+          <div class="name"><a href="https://x.com/JKempEnergy/status/2118308065552289820" target="_blank" rel="noopener">John Kemp</a></div>
+          <div class="point">馏分油库存偏紧；取暖需求弱压制气价</div>
+        </div>
+        <div class="kol" data-cat="大宗">
+          <div class="cat">大宗</div>
+          <div class="name">HFI / Javier / staunovo</div>
+          <div class="point">价差鞭打、伊朗斡旋、能源资讯流</div>
+        </div>
+        <div class="kol" data-cat="美股">
+          <div class="cat">美股</div>
+          <div class="name">Kobeissi / SpotGamma / qinbafrank</div>
+          <div class="point">连贯抛售；杠杆ETF被动卖压约420–520亿美元量级（帖文估）</div>
+        </div>
+        <div class="kol" data-cat="美股">
+          <div class="cat">美股</div>
+          <div class="name"><a href="https://x.com/saylor/status/2118456848252891379" target="_blank" rel="noopener">saylor</a></div>
+          <div class="point">4σ日：标普约−4.4%、纳指约−5.5%；BTC约−5%</div>
+        </div>
+        <div class="kol" data-cat="加密">
+          <div class="cat">加密</div>
+          <div class="name">CoinDesk / WatcherGuru</div>
+          <div class="point">BTC随风险资产下挫；监管人事利空叙事</div>
+        </div>
+        <div class="kol" data-cat="中文">
+          <div class="cat">中文</div>
+          <div class="name">cfsq143 / SYU77996</div>
+          <div class="point">当日偏美股/加密短线与A股主题，大宗方向性内容少</div>
+        </div></div>
+  </section>
+
+  <footer class="footer">
+    <p>公开KOL帖文整理，非个性化投资建议。大V有仓位与商业利益。价格/库存/概率均为帖文声称。期货与期权（含0DTE）可能导致超过本金的损失。</p>
+    <p>生成自结构化 JSON · 无外部追踪脚本</p>
+  </footer>
+</div>
+<script>
+(function(){
+  const seg = document.getElementById('seg');
+  const kols = document.querySelectorAll('#kols .kol');
+  seg.addEventListener('click', (e) => {
+    const btn = e.target.closest('button');
+    if (!btn) return;
+    seg.querySelectorAll('button').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const cat = btn.dataset.cat;
+    kols.forEach(k => {
+      k.style.display = (cat === '全部' || k.dataset.cat === cat) ? '' : 'none';
+    });
+  });
+})();
+</script>
+</body>
+</html>

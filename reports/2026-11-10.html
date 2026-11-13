@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>KOL观点日报 2026-11-10（含大宗商品）</title>
+<meta name="description" content="周一“黄仁勋冲击”被市场消化：NVDA开盘跌约6.5%，但Kobeissi称纳指100收涨超3%、标普+2.1%、VIX单日跌超20%，WatcherGuru称美股单日增加约2万亿美元市值。油价因美伊外交进展大跌（Kobeissi：WTI −3.5%、Brent −4%；staunovo：Brent结算92.57），JKemp称原油空头已掌控期货盘面。黄金反弹而BTC仍在75,000附近疲弱（CoinGecko 北京时间08:01约75,277美元），ETF继续净流出。今晚CPI落地时SPX仍处负gamma（SpotGamma），0DTE宜轻仓。"/>
+<style>
+:root {
+  --bg: #0f1115;
+  --paper: #171a21;
+  --text: #e8eaed;
+  --muted: #9aa0a6;
+  --border: #2a2f3a;
+  --red: #c62828;
+  --green: #2e7d32;
+  --orange: #ed6c02;
+  --card: #1c212b;
+  --shadow: 0 1px 0 rgba(255,255,255,.04) inset, 0 8px 24px rgba(0,0,0,.25);
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #f4f5f7;
+    --paper: #ffffff;
+    --text: #1a1d23;
+    --muted: #5f6368;
+    --border: #e3e6eb;
+    --card: #ffffff;
+    --shadow: 0 1px 2px rgba(0,0,0,.06), 0 8px 24px rgba(0,0,0,.04);
+  }
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "PingFang SC", "Noto Sans SC", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.55;
+}
+a { color: inherit; }
+.wrap { max-width: 1100px; margin: 0 auto; padding: 24px 16px 64px; }
+header.site {
+  display: flex; flex-wrap: wrap; gap: 12px; align-items: baseline;
+  justify-content: space-between; margin-bottom: 28px;
+}
+header.site h1 { font-size: 1.35rem; margin: 0; font-weight: 700; letter-spacing: .01em; }
+header.site p { margin: 0; color: var(--muted); font-size: .92rem; }
+.nav a { color: var(--muted); text-decoration: none; margin-left: 14px; font-size: .9rem; }
+.nav a:hover { color: var(--text); }
+.card {
+  background: var(--card); border: 1px solid var(--border); border-radius: 16px;
+  padding: 18px 18px 16px; box-shadow: var(--shadow);
+}
+.grid { display: grid; gap: 14px; }
+.grid-2 { grid-template-columns: repeat(2, minmax(0,1fr)); }
+.grid-4 { grid-template-columns: repeat(4, minmax(0,1fr)); }
+@media (max-width: 900px) {
+  .grid-4 { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .grid-2 { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  .grid-4 { grid-template-columns: 1fr; }
+}
+h2 { font-size: 1.05rem; margin: 28px 0 12px; }
+h3 { font-size: .95rem; margin: 0 0 10px; }
+.muted { color: var(--muted); font-size: .88rem; }
+.chip {
+  display: inline-block; padding: 2px 10px; border-radius: 999px;
+  font-size: 12px; font-weight: 700; line-height: 20px; letter-spacing: .02em;
+}
+.chip-多 { background: var(--red); color: #fff; }
+.chip-空 { background: var(--green); color: #fff; }
+.chip-中性, .chip-波动 { background: var(--orange); color: #fff; }
+.chip-off { background: var(--orange); color: #fff; }
+.chip-on { background: var(--red); color: #fff; }
+.list { margin: 8px 0 0; padding-left: 1.1rem; }
+.list li { margin: 4px 0; }
+.levels { width: 100%; border-collapse: collapse; font-size: .9rem; }
+.levels td { padding: 6px 0; border-bottom: 1px solid var(--border); vertical-align: top; }
+.levels td:first-child { color: var(--muted); width: 42%; }
+.links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+.links a {
+  display: inline-block; padding: 6px 10px; border-radius: 10px;
+  border: 1px solid var(--border); text-decoration: none; font-size: .82rem; color: var(--muted);
+}
+.links a:hover { color: var(--text); border-color: var(--muted); }
+.hero { display: grid; grid-template-columns: 1.4fr .9fr; gap: 14px; }
+@media (max-width: 800px) { .hero { grid-template-columns: 1fr; } }
+.gauge { width: 100%; max-width: 320px; }
+.proscons { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+@media (max-width: 700px) { .proscons { grid-template-columns: 1fr; } }
+.pro, .con { border-radius: 16px; border: 1px solid var(--border); padding: 14px 16px; background: var(--card); }
+.pro h3 { color: var(--red); }
+.con h3 { color: var(--green); }
+.bars { display: flex; flex-direction: column; gap: 8px; margin-top: 8px; }
+.bar-row { display: grid; grid-template-columns: 88px 1fr 48px; gap: 8px; align-items: center; font-size: .85rem; }
+.bar-track { height: 10px; background: var(--border); border-radius: 999px; overflow: hidden; }
+.bar-fill { height: 100%; background: var(--red); border-radius: 999px; }
+.seg { display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 0 12px; }
+.seg button {
+  border: 1px solid var(--border); background: transparent; color: var(--muted);
+  border-radius: 999px; padding: 6px 12px; cursor: pointer; font-size: .85rem;
+}
+.seg button.active, .seg button:hover { color: var(--text); border-color: var(--muted); }
+.kol { border-top: 1px solid var(--border); padding: 10px 0; }
+.kol .cat { color: var(--muted); font-size: .78rem; margin-bottom: 2px; }
+.kol .name { font-weight: 650; }
+.kol .point { color: var(--muted); font-size: .9rem; margin-top: 2px; }
+.report-item {
+  display: block; text-decoration: none; padding: 16px 18px; margin-bottom: 12px;
+  border-radius: 16px; border: 1px solid var(--border); background: var(--card);
+  box-shadow: var(--shadow);
+}
+.report-item:hover { border-color: var(--muted); }
+.report-item .top { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: space-between; }
+.report-item h2 { margin: 0; font-size: 1.05rem; }
+.footer { margin-top: 36px; color: var(--muted); font-size: .8rem; }
+.callout {
+  border-left: 3px solid var(--orange); padding: 10px 12px; margin: 10px 0;
+  background: color-mix(in srgb, var(--orange) 8%, transparent); border-radius: 0 10px 10px 0;
+}
+.quote {
+  margin: 12px 0 0; padding: 12px 14px; border-radius: 12px; border: 1px solid var(--border);
+  color: var(--muted); font-size: .9rem; font-style: italic;
+}
+.quote cite { display: block; margin-top: 8px; font-style: normal; font-size: .8rem; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="site">
+    <div>
+      <h1>KOL观点日报 2026-11-10（含大宗商品）</h1>
+      <p>图例：<span class="chip chip-多">多</span> <span class="chip chip-空">空</span> <span class="chip chip-波动">波动/中性</span>（A股惯例：红多绿空）</p>
+    </div>
+    <nav class="nav">
+      <a href="../index.html">全部日报</a>
+    </nav>
+  </header>
+
+  <section>
+    <h2>核心结论</h2>
+    <div class="hero">
+      <div class="card">
+        <div style="margin-bottom:8px"><span class="chip chip-波动">Risk-On 修复（CPI前仍负gamma，谨慎）</span></div>
+        <p style="margin:0 0 8px;font-size:1.05rem;font-weight:600">周一“黄仁勋冲击”被市场消化：NVDA开盘跌约6.5%，但Kobeissi称纳指100收涨超3%、标普+2.1%、VIX单日跌超20%，WatcherGuru称美股单日增加约2万亿美元市值。油价因美伊外交进展大跌（Kobeissi：WTI −3.5%、Brent −4%；staunovo：Brent结算92.57），JKemp称原油空头已掌控期货盘面。黄金反弹而BTC仍在75,000附近疲弱（CoinGecko 北京时间08:01约75,277美元），ETF继续净流出。今晚CPI落地时SPX仍处负gamma（SpotGamma），0DTE宜轻仓。</p>
+        <div class="callout">42账号、2026-11-09 00:00 UTC起窗口共386帖，35个账号有帖。美股：NVDA丑闻持续发酵（集体诉讼、国会传唤、NYT称英伟达干预芯片走私调查），但资金轮动到其他科技与小盘，Pompliano称黄仁勋事件或成AI抛售底部、qinbafrank称情绪到悲观极值可慢慢捞货；反方Kobeissi提示科技巨头4.49万亿美元表外AI义务、英国央行警告AI泡沫、Kitco采访的空头称AI抛售才刚开始。利率：Bitwux称市场仍定价约77–80%概率美联储12月加息25bp（帖文声称），本周CPI(周二)/PPI(周五)/17场美联储讲话。加密：BTC ETF 1日−4.68亿、7日−13.2亿美元（lookonchain），Schiff喊卖BTC/MSTR；巨鲸抄底ETH（lookonchain/EmberCN）。大宗：油价因IAEA重返伊朗/卡塔尔斡旋报道大跌、运费从高位回落、对冲基金创纪录做空美气；金银延续选后反弹（Schiff称金将破4,100），铜矿ETF连跌11周、三地铜价无套利；玉米跌至7月以来低点。除CoinGecko抓取的BTC/ETH/SOL现价外，其余数字均为帖文声称。</div>
+        <p class="muted">样本：35/42 账号有帖，约 386 条。静默：CathieDWood、VitalikButerin、CryptoHayes、huahuayjy、0xSunNFT、TaviCosta、WarrenPies</p>
+      </div>
+      <div class="card" style="display:flex;flex-direction:column;align-items:center;justify-content:center">
+        
+<svg class="gauge" viewBox="0 0 280 120" aria-hidden="true">
+  <path d="M20 100 A120 120 0 0 1 260 100" fill="none" stroke="currentColor" opacity=".15" stroke-width="16" stroke-linecap="round"/>
+  <path d="M20 100 A120 120 0 0 1 100 28" fill="none" stroke="#c62828" stroke-width="16" stroke-linecap="round" opacity=".85"/>
+  <path d="M100 28 A120 120 0 0 1 180 28" fill="none" stroke="#ed6c02" stroke-width="16" stroke-linecap="round" opacity=".9"/>
+  <path d="M180 28 A120 120 0 0 1 260 100" fill="none" stroke="#2e7d32" stroke-width="16" stroke-linecap="round" opacity=".85"/>
+  <line x1="140" y1="100" x2="70" y2="42" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="140" cy="100" r="6" fill="currentColor"/>
+  <text x="28" y="118" fill="currentColor" opacity=".55" font-size="11">风险偏好</text>
+  <text x="200" y="118" fill="currentColor" opacity=".55" font-size="11">防守</text>
+  <text x="105" y="78" fill="currentColor" font-size="13" font-weight="600">Risk-On</text>
+</svg>
+        <p class="muted" style="margin:8px 0 0">风险偏好仪表</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>资产情绪板</h2>
+    <div class="grid grid-4">
+        <div class="card">
+          <h3>美股/科技/AI <span class="chip chip-多">多</span></h3>
+          <p class="muted" style="margin:0">Kobeissi：NVDA跌6.5%抹去约3000亿美元市值的同时纳指100涨3.2%，标普+2.1%、VIX跌超20%，称‘空头回补加速’，并称此前已提示SPX反弹至7450上方；WatcherGuru：美股单日增加约2万亿美元。Pompliano：黄仁勋事件或标志AI抛售见底。qinbafrank：情绪处于悲观极值，可慢慢捞货。Cramer：部分股票两天内从便宜变为合理，数据中心股图形仍很难看，AMD是赢家但美国数据中心多年路线图存疑。风险：UW称NVDA两周跌约18%、遭集体诉讼；NYT称商务部曾批准向可疑中国实体出售NVDA芯片；Kobeissi称巨头表外AI义务4.49万亿美元；WatcherGuru转述英国央行警告AI高估或致崩盘。</p>
+        </div>
+        <div class="card">
+          <h3>利率/美元 <span class="chip chip-中性">中性</span></h3>
+          <p class="muted" style="margin:0">Bitwux：市场仍认为美联储12月加息25bp概率约77–80%（帖文声称），周二CPI、周五PPI、本周17场美联储讲话；staunovo：本周CPI将缺少部分关键数据（12个月同比）。Kitco：强劲就业报告推升美元。WatcherGuru：民主党拿下国会后明年衰退概率下降；参院民主党拟推信用卡利率10%上限。Schiff：民主党国会+2029民主党总统=更多支出、赤字与通胀。</p>
+        </div>
+        <div class="card">
+          <h3>BTC <span class="chip chip-空">空</span></h3>
+          <p class="muted" style="margin:0">CoinGecko（北京时间08:01）BTC约75,277美元，24h约+0.7%。lookonchain：BTC ETF 1日净流出6,270枚（约4.68亿美元）、7日约13.2亿美元；Wintermute（吴说转述）：上周ETF流出12.8亿美元为6月以来最大，BTC周日一度跌至7.35万、接近约7.3万的200日线。Schiff：BTC跌破75K关键支撑，‘崩盘前卖出’；Kitco评论：BTC两周级别卖出信号。多方：Strategy再买1,036枚（均价约79,012），持有850,364枚；cfsq143：75000附近上下均堆积清算流动性。</p>
+        </div>
+        <div class="card">
+          <h3>ETH/山寨 <span class="chip chip-中性">中性</span></h3>
+          <p class="muted" style="margin:0">CoinGecko（08:01）ETH约2,133美元、SOL约86.6美元。lookonchain：ETH ETF 1日−8,825万、7日−3.63亿美元；但巨鲸抄底——借2,200万USDT以2,155买入1万枚ETH、另一地址从币安提走34,601枚ETH；EmberCN：某巨鲸一周囤16,577枚ETH，另有6.3万枚ETH多仓被清算亏4,847万美元。BitMine持ETH约607万枚（约4.97%供应，吴说）。机构：嘉信上线SOL/AVAX/LINK现货，NYSE关联代币化平台用Avalanche清算（CoinDesk/吴说）。</p>
+        </div>
+        <div class="card">
+          <h3>原油 <span class="chip chip-空">空</span></h3>
+          <p class="muted" style="margin:0">zerohedge：IAEA或重返伊朗的报道令油价大跌；Kobeissi：WTI −3.5%、Brent −4%；staunovo：Brent结算92.57美元。Trump称结束战争‘有积极势头’，Javier转述其称军事行动‘相当不可能’、盟友更愿维持海上封锁现状。JKemp：原油期货空头占据主导。Burggraben：中国海运原油进口回到基线、Dated Brent回到96美元、伊朗9月起已失去对霍尔木兹的控制；油轮运费大幅回落（TD25 Aframax从192跌至94美元/吨）。Phyrex：11/6在Brent溢价超8美元时做空并获利。风险：沙特东西管道再遇袭（仍运行），UAE官员称美伊全面解决需很长时间，HFI多次质疑消息真实性。</p>
+        </div>
+        <div class="card">
+          <h3>天然气 <span class="chip chip-空">空</span></h3>
+          <p class="muted" style="margin:0">JKemp：对冲基金在Henry Hub期货/期权上持有纪录级净空头，约合2,107 bcf。Javier：欧洲首轮‘Dunkelflaute’推高短期电价，但德国1年期电力合约仍受控。staunovo：意大利拟补贴燃气电厂燃料成本。</p>
+        </div>
+        <div class="card">
+          <h3>黄金/白银 <span class="chip chip-多">多</span></h3>
+          <p class="muted" style="margin:0">Kobeissi：周一黄金+1.5%。Schiff：中期选举后股市基本持平、BTC跌超4%，而黄金涨超5%、白银近7%、金矿股超18%；称金价即将突破4,100、‘现在买入’。Kitco：金价在4,150附近受阻后回落至约4,070，因强劲就业推升美元；央行年内购金净321吨；铂金周涨6.66%；Brien Lundin称黄金长期牛市未结束。cfsq143：白银周线C浪赶底，11月13–15日是关键时间窗，48附近为重仓支撑。</p>
+        </div>
+        <div class="card">
+          <h3>工业金属 <span class="chip chip-空">空</span></h3>
+          <p class="muted" style="margin:0">Kobeissi：全球铜矿股ETF COPX连跌11周，创2010年上市以来最长，累计−24.7%。Burggraben：Comex、LME与上海铜价多年来首次几乎无套利空间，SHFE略高估。staunovo：欧洲对中国稀土依赖是1.5万亿美元风险；美国政府贷款方不批特朗普之子背书的哈萨克矿业项目。</p>
+        </div>
+        <div class="card">
+          <h3>农产品 <span class="chip chip-空">空</span></h3>
+          <p class="muted" style="margin:0">staunovo：玉米价格跌至7月1日以来最低，市场预期USDA月度供需报告（WASDE）将显示全球供应增加。其他谷物/软商品无喊单。</p>
+        </div>
+        <div class="card">
+          <h3>A股/中概 <span class="chip chip-中性">中性</span></h3>
+          <p class="muted" style="margin:0">SYU77996：煤炭燃气供暖板块估值低、资金避险时易抱团，用于抗跌护盘；太空算力+卫星通信共振；美股盘前标普期货约7447.5（帖文时点）。Phyrex转述高盛：杠杆ETF单日净流入33亿美元，SOXL净流入约37亿美元，杠杆资金押注半导体反弹。</p>
+        </div></div>
+  </section>
+
+  <section>
+    <h2>大宗商品</h2>
+    <p class="muted">关键位来自帖文声称，非独立行情源。</p>
+    <div class="grid grid-2">
+        <div class="card">
+          <h3>原油 / 天然气</h3>
+          <table class="levels"><tr><td>Brent结算(staunovo)</td><td>92.57美元/桶（帖文声称）</td></tr><tr><td>周一跌幅(Kobeissi)</td><td>WTI −3.5%、Brent −4%</td></tr><tr><td>Dated Brent(Burggraben)</td><td>回到约96美元</td></tr><tr><td>美气基金净空(JKemp)</td><td>约2,107 bcf，纪录级</td></tr><tr><td>美国批发汽油(Javier)</td><td>2.68美元/加仑，战争初期以来最低</td></tr></table>
+          <ul class='list'><li>zerohedge/Phyrex：IAEA或重返伊朗、卡塔尔与巴基斯坦方案（伊朗铀浓缩3.67%、释放60–90亿美元资产、霍尔木兹开放）报道触发油价大跌</li><li>Javier：Trump称对伊军事行动‘相当不可能’，盟友倾向维持海上封锁现状；西苏伊士运费从历史高位大幅回落</li><li>JKemp：除美国汽油外，投资者对整个石油板块转为看空</li><li>Burggraben：中国海运原油进口回到基线；油轮运费是‘教科书式商品超调’后回落</li><li>风险：沙特东西管道再遇袭但仍运行（Javier）；UAE官员称全面解决需很久（staunovo）；Phyrex称只要封锁在，霍尔木兹不会100%太平</li><li>cfsq143：称在103附近布局原油空单，问目标能否到72（帖文声称）</li></ul>
+          <div class="links"><a href="https://x.com/JKempEnergy/status/2119807473209180410" target="_blank" rel="noopener">JKemp · 原油空头掌控</a><a href="https://x.com/JKempEnergy/status/2119746795106390301" target="_blank" rel="noopener">JKemp · 美气纪录净空</a><a href="https://x.com/JavierBlas/status/2119915374275908037" target="_blank" rel="noopener">Javier · 军事行动不太可能</a><a href="https://x.com/JavierBlas/status/2119832603884757100" target="_blank" rel="noopener">Javier · 汽油跌破4美元</a><a href="https://x.com/staunovo/status/2119880694616732081" target="_blank" rel="noopener">staunovo · Brent结算</a><a href="https://x.com/BurggrabenH/status/2119827326489731546" target="_blank" rel="noopener">Burggraben · Dated Brent 96</a><a href="https://x.com/zerohedge/status/2119883083914661890" target="_blank" rel="noopener">zerohedge · IAEA消息油价跳水</a></div>
+        </div>
+        <div class="card">
+          <h3>贵金属</h3>
+          <table class="levels"><tr><td>金价(Kitco)</td><td>自4,150附近回落至约4,070</td></tr><tr><td>Schiff目标</td><td>即将突破4,100</td></tr><tr><td>选后涨幅(Schiff)</td><td>金+5%、银近+7%、金矿股+18%</td></tr><tr><td>白银支撑(cfsq143)</td><td>48附近；时间窗11/13–15</td></tr><tr><td>央行购金(Kitco)</td><td>年内净321吨</td></tr></table>
+          <ul class='list'><li>Kobeissi：周一黄金+1.5%，与美股同涨</li><li>Kitco：弱美元、油价下跌与美伊外交支撑金银；铂金周涨6.66%领涨</li><li>Schiff：民主党国会意味着更多赤字与通胀，利多黄金</li><li>Kitco（Brien Lundin）：黄金长期牛市未结束；Ted Oakley看空矿业股至明年</li><li>cfsq143：白银周线C浪赶底，若时间窗出现缩量长下影则可能B浪反弹</li></ul>
+          <div class="links"><a href="https://x.com/PeterSchiff/status/2119594204116799616" target="_blank" rel="noopener">Schiff · 金将破4100</a><a href="https://x.com/PeterSchiff/status/2119900144846148039" target="_blank" rel="noopener">Schiff · 选后金银跑赢</a><a href="https://x.com/KitcoNewsNOW/status/2119861387769864373" target="_blank" rel="noopener">Kitco · 金价4070</a><a href="https://x.com/KitcoNewsNOW/status/2119824325406531816" target="_blank" rel="noopener">Kitco · 央行购金</a><a href="https://x.com/cfsq143/status/2119649709870727396" target="_blank" rel="noopener">cfsq143 · 白银时间窗</a></div>
+        </div>
+        <div class="card">
+          <h3>工业金属</h3>
+          <table class="levels"><tr><td>COPX(Kobeissi)</td><td>连跌11周，−24.7%</td></tr><tr><td>铜跨市套利(Burggraben)</td><td>Comex/LME/SHFE几乎无套利</td></tr><tr><td>铀(Kitco)</td><td>随AI股被抛售</td></tr></table>
+          <ul class='list'><li>Kobeissi：铜矿股创2010年以来最长连跌</li><li>Burggraben：三地铜价套利多年来首次消失，SHFE略高估</li><li>staunovo：欧洲对中国稀土依赖构成1.5万亿美元风险</li><li>Kitco（Scott Melbye）：铀逻辑不依赖单个数据中心</li></ul>
+          <div class="links"><a href="https://x.com/KobeissiLetter/status/2119798050763771937" target="_blank" rel="noopener">Kobeissi · COPX连跌11周</a><a href="https://x.com/BurggrabenH/status/2119878747004502378" target="_blank" rel="noopener">Burggraben · 铜无套利</a><a href="https://x.com/staunovo/status/2119887083930083496" target="_blank" rel="noopener">staunovo · 稀土风险</a></div>
+        </div>
+        <div class="card">
+          <h3>农产品</h3>
+          <table class="levels"><tr><td>玉米(staunovo)</td><td>7月1日以来最低</td></tr><tr><td>催化</td><td>USDA月度供需报告</td></tr></table>
+          <ul class='list'><li>staunovo：玉米下跌，市场预期USDA报告显示全球供应增加</li><li>Ole COT：选前对冲基金在25个商品期货上全线净卖出（含农产品）</li></ul>
+          <div class="links"><a href="https://x.com/staunovo/status/2119879345347133798" target="_blank" rel="noopener">staunovo · 玉米新低</a><a href="https://x.com/Ole_S_Hansen/status/2119717065565110574" target="_blank" rel="noopener">Ole · COT一片红</a></div>
+        </div></div>
+  </section>
+
+  <section>
+    <h2>共识与分歧</h2>
+    <div class="proscons">
+      <div class="pro"><h3>较一致</h3><ul class='list'><li>美伊降温：Trump称‘积极势头’、军事行动不太可能（Javier/Kobeissi/Phyrex/qinbafrank），油价与运费回落，原油期货空头占优（JKemp）</li><li>NVDA是个股风险而非全市场风险：NVDA大跌同时纳指大涨（Kobeissi/UW/qinbafrank），资金轮动</li><li>贵金属走强：Schiff、Kitco、Kobeissi均显示选后金银反弹</li><li>加密资金面偏弱：BTC/ETH ETF持续净流出（lookonchain/Phyrex/Wintermute）</li><li>本周宏观密集：周二CPI、周五PPI、17场美联储讲话（Bitwux/SpotGamma）</li></ul></div>
+      <div class="con"><h3>明显分歧</h3><ul class='list'><li>美股：Pompliano称AI抛售或已见底、qinbafrank称悲观极值 vs Kitco空头称AI抛售才开始、英国央行警告泡沫、Kobeissi提示4.49万亿表外义务</li><li>原油：外交降温+运费回落（Javier/Burggraben/JKemp）vs 管道遇袭、UAE称难以短期解决、HFI质疑外交消息</li><li>BTC：Saylor持续买入、cfsq143看双向清算 vs Schiff喊卖、Kitco两周卖出信号、ETF流出</li><li>利率：市场定价12月加息（Bitwux转述）vs 衰退概率下降与油价回落可能缓解通胀（Sacks称战争结束通胀会快速回落，UW转述）</li></ul></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>投资参考</h2>
+    <div class="grid grid-2">
+      <div class="card">
+        <h3>行动清单</h3>
+        <div class="callout">偏多但谨慎：周一反弹以空头回补和资金轮动为主，NVDA本身仍处在调查、诉讼与国会传唤之中，宜回避单一NVDA押注，权益分散到受益于轮动的板块。今晚CPI落地时SPX仍处负gamma（SpotGamma称gamma新低位7,200），短线波幅可能放大。原油在外交降温下偏空，但地缘尾部风险仍在，空单需设止损。贵金属中期偏多。BTC在75,000附近（CoinGecko 08:01约75,277），未收复前偏弱，关注73,000附近200日线（Wintermute转述）。</div>
+        <ul class='list'><li>催化：周二CPI（部分同比数据缺失，staunovo）、周五PPI、17场美联储讲话、USDA月度供需报告、Anthropic IPO（WSJ称11月19或20日上市，代码ANT）、NVDA黄仁勋国会传唤与集体诉讼、Hegseth弹劾投票、美伊卡塔尔斡旋、NBIS周四财报</li><li>商品：原油看美伊谈判与霍尔木兹封锁、沙特管道安全；美气基金纪录净空，警惕空头回补；黄金看美元与CPI；白银看11/13–15时间窗与48支撑（cfsq143）；铜看COPX止跌信号；玉米看USDA报告</li><li>忌：把周一反弹直接当成V型反转；CPI前重仓0DTE；在外交消息真假未明时追空/追多原油（HFI多次质疑消息）；把BTC当避险资产</li></ul>
+      </div>
+      <div class="card">
+        <h3>关键位速查（美元·帖文）</h3>
+        <div class="bars">
+        <div class="bar-row">
+          <div>BTC现价(CoinGecko 08:01)</div>
+          <div class="bar-track"><div class="bar-fill" style="width:100%"></div></div>
+          <div>≈75,277</div>
+        </div>
+        <div class="bar-row">
+          <div>ETH现价(CoinGecko 08:01)</div>
+          <div class="bar-track"><div class="bar-fill" style="width:3%"></div></div>
+          <div>≈2,133</div>
+        </div>
+        <div class="bar-row">
+          <div>SPX反弹位(Kobeissi)</div>
+          <div class="bar-track"><div class="bar-fill" style="width:10%"></div></div>
+          <div>7450上方</div>
+        </div>
+        <div class="bar-row">
+          <div>SPX gamma低点(SpotGamma)</div>
+          <div class="bar-track"><div class="bar-fill" style="width:10%"></div></div>
+          <div>7200</div>
+        </div>
+        <div class="bar-row">
+          <div>金价(Kitco)</div>
+          <div class="bar-track"><div class="bar-fill" style="width:5%"></div></div>
+          <div>≈4,070</div>
+        </div>
+        <div class="bar-row">
+          <div>Brent结算(staunovo)</div>
+          <div class="bar-track"><div class="bar-fill" style="width:0%"></div></div>
+          <div>92.57</div>
+        </div></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>期权 / 0DTE / 期货</h2>
+    <div class="grid grid-2">
+      <div class="card">
+        <h3>股指期权 · 0DTE</h3>
+        <ul class='list'><li>SpotGamma：CPI周二早间落地时SPX处于负gamma环境；gamma新低位从7,400下移到7,200——数据若超预期，交易商对冲会放大波动</li><li>SpotGamma：NVDA买方持有看跌、交易商做空看跌，下方形成负gamma；称负gamma在150下方消散；当日有8位数NVDA看涨价差向下移仓（增加上行delta）</li><li>unusual_whales：有人以约2,519万美元权利金买入3,000张NVDA 2029年1月19日到期$110看涨（深度实值、长期限）；另有约400万美元押注NBIS本周五到期看涨（财报在周四）</li><li>Kobeissi：VIX单日跌超20%，空头回补推动反弹</li><li>策略提示：CPI当天0DTE轻仓、用价差定义风险而非裸卖；NVDA事件仍未落地，周期权隐波偏高</li></ul>
+      </div>
+      <div class="card">
+        <h3>商品期货</h3>
+        <ul class='list'><li>原油：外交降温+运费回落，JKemp称期货空头掌控；Brent结算92.57（staunovo）；Phyrex在溢价&gt;8美元时做空Brent获利；空单需防地缘反复</li><li>天然气：基金在Henry Hub持纪录级净空（JKemp），存在空头回补风险</li><li>贵金属：选后金银反弹，Schiff看金价破4,100；cfsq143看白银48支撑</li><li>股指期货：SYU77996称盘前标普期货约7447.5；Kobeissi称SPX收复7450</li><li>加密永续：cfsq143称75,576约7,970万、75,691约1.01亿美元空单清算位；Abraxas在Hyperliquid仍持10.5亿美元空头（lookonchain）；UXLINK黑客TWAP平掉1.48亿美元多仓（EmberCN）</li></ul>
+        <blockquote class='quote'>CPI arrives Tuesday morning with SPX in a negative gamma environment. Will cooling inflation fuel a further relief rally, or could another hot print reignite selling?<cite>— SpotGamma · CPI前瞻</cite></blockquote>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>分人观点</h2>
+    <div class="seg" id="seg">
+      <button class="active" data-cat="全部">全部</button>
+      <button data-cat="大宗">大宗</button>
+      <button data-cat="美股">美股</button>
+      <button data-cat="加密">加密</button>
+      <button data-cat="中文">中文</button>
+    </div>
+    <div class="card" id="kols">
+        <div class="kol" data-cat="大宗">
+          <div class="cat">大宗</div>
+          <div class="name"><a href="https://x.com/JKempEnergy/status/2119807473209180410" target="_blank" rel="noopener">John Kemp</a></div>
+          <div class="point">原油期货空头掌控；基金在美气上持纪录级净空（约2,107 bcf）</div>
+        </div>
+        <div class="kol" data-cat="大宗">
+          <div class="cat">大宗</div>
+          <div class="name"><a href="https://x.com/JavierBlas/status/2119915374275908037" target="_blank" rel="noopener">Javier Blas</a></div>
+          <div class="point">Trump称对伊军事行动相当不可能；西苏伊士运费大跌；美国汽油将跌破4美元；沙特东西管道再遇袭仍运行</div>
+        </div>
+        <div class="kol" data-cat="大宗">
+          <div class="cat">大宗</div>
+          <div class="name"><a href="https://x.com/staunovo/status/2119880694616732081" target="_blank" rel="noopener">Giovanni Staunovo</a></div>
+          <div class="point">Brent结算92.57；玉米7月以来最低；UAE称全面解决需很久；CPI缺同比数据</div>
+        </div>
+        <div class="kol" data-cat="大宗">
+          <div class="cat">大宗</div>
+          <div class="name"><a href="https://x.com/BurggrabenH/status/2119878747004502378" target="_blank" rel="noopener">Burggraben</a></div>
+          <div class="point">三地铜价无套利；Dated Brent回到96、伊朗已失去霍尔木兹控制；运费超调回落；‘没有黄仁勋的英伟达会有大问题’</div>
+        </div>
+        <div class="kol" data-cat="大宗">
+          <div class="cat">大宗</div>
+          <div class="name"><a href="https://x.com/KitcoNewsNOW/status/2119861387769864373" target="_blank" rel="noopener">Kitco News</a></div>
+          <div class="point">金价自4,150回落至约4,070；央行购金净321吨；铂金周涨6.66%；BTC两周卖出信号</div>
+        </div>
+        <div class="kol" data-cat="大宗">
+          <div class="cat">大宗</div>
+          <div class="name"><a href="https://x.com/HFI_Research/status/2119884420325024008" target="_blank" rel="noopener">HFI Research</a></div>
+          <div class="point">油价跌4%后多次质疑阿拉伯媒体外交消息（‘内幕交易’）</div>
+        </div>
+        <div class="kol" data-cat="大宗">
+          <div class="cat">大宗</div>
+          <div class="name"><a href="https://x.com/Ole_S_Hansen/status/2119717065565110574" target="_blank" rel="noopener">Ole Hansen</a></div>
+          <div class="point">COT：选前基金在25个商品期货上全线净卖出，净多头−33%</div>
+        </div>
+        <div class="kol" data-cat="大宗">
+          <div class="cat">大宗</div>
+          <div class="name"><a href="https://x.com/LukeGromen/status/2119809528711782559" target="_blank" rel="noopener">Luke Gromen</a></div>
+          <div class="point">仅一条评论帖，无市场方向观点</div>
+        </div>
+        <div class="kol" data-cat="大宗">
+          <div class="cat">大宗</div>
+          <div class="name"><a href="https://x.com/cfsq143/status/2119927685988388952" target="_blank" rel="noopener">cfsq143</a></div>
+          <div class="point">BTC 75,000附近上下均有清算流动性；原油103附近空单；白银48支撑、时间窗11/13–15</div>
+        </div>
+        <div class="kol" data-cat="大宗">
+          <div class="cat">大宗</div>
+          <div class="name"><a href="https://x.com/SYU77996/status/2119784901411221540" target="_blank" rel="noopener">SYU77996</a></div>
+          <div class="point">煤炭燃气供暖板块防御；太空算力+卫星通信；标普期货盘前约7447.5</div>
+        </div>
+        <div class="kol" data-cat="美股">
+          <div class="cat">美股</div>
+          <div class="name"><a href="https://x.com/KobeissiLetter/status/2119840715211473196" target="_blank" rel="noopener">The Kobeissi Letter</a></div>
+          <div class="point">NVDA −6.5%而纳指+3.2%；VIX −20%；表外AI义务4.49万亿；COPX连跌11周</div>
+        </div>
+        <div class="kol" data-cat="美股">
+          <div class="cat">美股</div>
+          <div class="name"><a href="https://x.com/spotgamma/status/2119932568665485707" target="_blank" rel="noopener">SpotGamma</a></div>
+          <div class="point">CPI时SPX处负gamma，gamma低点7,200；NVDA负gamma在150下方消散</div>
+        </div>
+        <div class="kol" data-cat="美股">
+          <div class="cat">美股</div>
+          <div class="name"><a href="https://x.com/unusual_whales/status/2119880914302013670" target="_blank" rel="noopener">unusual_whales</a></div>
+          <div class="point">NVDA两周跌约18%、遭集体诉讼；Anthropic拟11/19–20上市；NVDA长期看涨与NBIS短期看涨大单</div>
+        </div>
+        <div class="kol" data-cat="美股">
+          <div class="cat">美股</div>
+          <div class="name"><a href="https://x.com/zerohedge/status/2119897929246757342" target="_blank" rel="noopener">zerohedge</a></div>
+          <div class="point">‘Huang-Over’：股市大涨、油价大跌；IAEA或重返伊朗；英伟达曾干预芯片走私调查</div>
+        </div>
+        <div class="kol" data-cat="美股">
+          <div class="cat">美股</div>
+          <div class="name"><a href="https://x.com/PeterSchiff/status/2119900144846148039" target="_blank" rel="noopener">Peter Schiff</a></div>
+          <div class="point">金将破4,100；选后金银跑赢股市与BTC；喊卖BTC和MSTR</div>
+        </div>
+        <div class="kol" data-cat="美股">
+          <div class="cat">美股</div>
+          <div class="name"><a href="https://x.com/jimcramer/status/2119934368265212382" target="_blank" rel="noopener">Jim Cramer</a></div>
+          <div class="point">部分股票两天内从便宜变合理；数据中心股图形惨烈；美国数据中心路线图存疑</div>
+        </div>
+        <div class="kol" data-cat="美股">
+          <div class="cat">美股</div>
+          <div class="name"><a href="https://x.com/BillAckman/status/2119933895420576080" target="_blank" rel="noopener">Bill Ackman</a></div>
+          <div class="point">无市场观点（社会议题）</div>
+        </div>
+        <div class="kol" data-cat="美股">
+          <div class="cat">美股</div>
+          <div class="name"><a href="https://x.com/chamath/status/2119819881965322501" target="_blank" rel="noopener">Chamath</a></div>
+          <div class="point">选民出口民调给出2028年成功公式：面向工薪层的经济民粹</div>
+        </div>
+        <div class="kol" data-cat="美股">
+          <div class="cat">美股</div>
+          <div class="name"><a href="https://x.com/michaeljburry/status/2119848054547460224" target="_blank" rel="noopener">Michael Burry</a></div>
+          <div class="point">无市场观点（移民政策）</div>
+        </div>
+        <div class="kol" data-cat="美股">
+          <div class="cat">美股</div>
+          <div class="name"><a href="https://x.com/RayDalio/status/2119838262999073042" target="_blank" rel="noopener">Ray Dalio</a></div>
+          <div class="point">无市场观点（沟通原则）</div>
+        </div>
+        <div class="kol" data-cat="加密">
+          <div class="cat">加密</div>
+          <div class="name"><a href="https://x.com/lookonchain/status/2119788505035575704" target="_blank" rel="noopener">Lookonchain</a></div>
+          <div class="point">BTC ETF 1日−4.68亿、7日−13.2亿；ETH巨鲸抄底；Abraxas仍持10.5亿美元空头</div>
+        </div>
+        <div class="kol" data-cat="加密">
+          <div class="cat">加密</div>
+          <div class="name"><a href="https://x.com/APompliano/status/2119858671391801498" target="_blank" rel="noopener">Anthony Pompliano</a></div>
+          <div class="point">黄仁勋事件或标志AI抛售见底</div>
+        </div>
+        <div class="kol" data-cat="加密">
+          <div class="cat">加密</div>
+          <div class="name"><a href="https://x.com/saylor/status/2119778202931388769" target="_blank" rel="noopener">Michael Saylor</a></div>
+          <div class="point">Strategy增持1,036枚BTC并回购1.88亿美元STRC，持有850,364枚</div>
+        </div>
+        <div class="kol" data-cat="加密">
+          <div class="cat">加密</div>
+          <div class="name"><a href="https://x.com/WatcherGuru/status/2119896726060638230" target="_blank" rel="noopener">Watcher.Guru</a></div>
+          <div class="point">美股单日增2万亿；英国央行警告AI崩盘风险；Warren将调查特朗普家族加密业务</div>
+        </div>
+        <div class="kol" data-cat="加密">
+          <div class="cat">加密</div>
+          <div class="name"><a href="https://x.com/CoinDesk/status/2119736512765964548" target="_blank" rel="noopener">CoinDesk</a></div>
+          <div class="point">Coinbase获OCC信托银行全牌照；嘉信上线SOL/AVAX/LINK；NYSE代币化平台用Avalanche</div>
+        </div>
+        <div class="kol" data-cat="加密">
+          <div class="cat">加密</div>
+          <div class="name"><a href="https://x.com/cz_binance/status/2119677727855013948" target="_blank" rel="noopener">CZ</a></div>
+          <div class="point">代币化股票24/7交易，周末消息面占优；币安数据泄露传闻为骗局</div>
+        </div>
+        <div class="kol" data-cat="加密">
+          <div class="cat">加密</div>
+          <div class="name"><a href="https://x.com/brian_armstrong/status/2119753787715801439" target="_blank" rel="noopener">Brian Armstrong</a></div>
+          <div class="point">Coinbase国家信托公司是链上金融基础</div>
+        </div>
+        <div class="kol" data-cat="加密">
+          <div class="cat">加密</div>
+          <div class="name"><a href="https://x.com/RaoulGMI/status/2119854599699841495" target="_blank" rel="noopener">Raoul Pal</a></div>
+          <div class="point">无市场观点（新书与NFT）</div>
+        </div>
+        <div class="kol" data-cat="中文">
+          <div class="cat">中文</div>
+          <div class="name"><a href="https://x.com/PhyrexNi/status/2119912580059889813" target="_blank" rel="noopener">Phyrex</a></div>
+          <div class="point">短期打仗概率不大但封锁在则霍尔木兹难全太平；11/6做空Brent获利；杠杆资金押注半导体反弹</div>
+        </div>
+        <div class="kol" data-cat="中文">
+          <div class="cat">中文</div>
+          <div class="name"><a href="https://x.com/qinbafrank/status/2119803773292003809" target="_blank" rel="noopener">qinbafrank</a></div>
+          <div class="point">市场只对黄仁勋事件做最悲观计价，情绪到悲观极值可慢慢捞货</div>
+        </div>
+        <div class="kol" data-cat="中文">
+          <div class="cat">中文</div>
+          <div class="name"><a href="https://x.com/Bitwux/status/2119716990969643243" target="_blank" rel="noopener">Bitwux</a></div>
+          <div class="point">本周CPI/PPI/17场美联储讲话；市场定价12月加息概率约77–80%</div>
+        </div>
+        <div class="kol" data-cat="中文">
+          <div class="cat">中文</div>
+          <div class="name"><a href="https://x.com/wublockchain12/status/2119803541846180064" target="_blank" rel="noopener">吴说</a></div>
+          <div class="point">Wintermute：ETF周流出12.8亿、BTC接近200日线7.3万；Strategy均价79,012买入；BitMine持ETH近5%</div>
+        </div>
+        <div class="kol" data-cat="中文">
+          <div class="cat">中文</div>
+          <div class="name"><a href="https://x.com/EmberCN/status/2119626990768754977" target="_blank" rel="noopener">EmberCN</a></div>
+          <div class="point">巨鲸一周囤16,577枚ETH；另一巨鲸6.3万枚ETH多仓被清算</div>
+        </div>
+        <div class="kol" data-cat="中文">
+          <div class="cat">中文</div>
+          <div class="name"><a href="https://x.com/WuBlockchain/status/2119686630206496810" target="_blank" rel="noopener">WuBlockchain</a></div>
+          <div class="point">CoreWeave季度利息6.4亿美元，CPI/PPI或令利率维持高位</div>
+        </div>
+        <div class="kol" data-cat="中文">
+          <div class="cat">中文</div>
+          <div class="name"><a href="https://x.com/wolfyxbt/status/2119689563157496249" target="_blank" rel="noopener">wolfyxbt</a></div>
+          <div class="point">调侃黄仁勋事件，无交易观点</div>
+        </div></div>
+  </section>
+
+  <footer class="footer">
+    <p>公开KOL帖文整理，非个性化投资建议。大V有仓位与商业利益。除标注CoinGecko（北京时间08:01抓取）的BTC/ETH/SOL现价外，价格、仓位与资金流数据均为帖文声称。期货与期权（含0DTE）可能导致超过本金的损失。</p>
+    <p>生成自结构化 JSON · 无外部追踪脚本</p>
+  </footer>
+</div>
+<script>
+(function(){
+  const seg = document.getElementById('seg');
+  const kols = document.querySelectorAll('#kols .kol');
+  seg.addEventListener('click', (e) => {
+    const btn = e.target.closest('button');
+    if (!btn) return;
+    seg.querySelectorAll('button').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const cat = btn.dataset.cat;
+    kols.forEach(k => {
+      k.style.display = (cat === '全部' || k.dataset.cat === cat) ? '' : 'none';
+    });
+  });
+})();
+</script>
+</body>
+</html>
