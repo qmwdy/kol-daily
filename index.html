@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>KOL观点日报</title>
+<meta name="description" content="每日汇总美股、加密与大宗商品大V观点"/>
+<style>
+:root {
+  --bg: #0f1115;
+  --paper: #171a21;
+  --text: #e8eaed;
+  --muted: #9aa0a6;
+  --border: #2a2f3a;
+  --red: #c62828;
+  --green: #2e7d32;
+  --orange: #ed6c02;
+  --card: #1c212b;
+  --shadow: 0 1px 0 rgba(255,255,255,.04) inset, 0 8px 24px rgba(0,0,0,.25);
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #f4f5f7;
+    --paper: #ffffff;
+    --text: #1a1d23;
+    --muted: #5f6368;
+    --border: #e3e6eb;
+    --card: #ffffff;
+    --shadow: 0 1px 2px rgba(0,0,0,.06), 0 8px 24px rgba(0,0,0,.04);
+  }
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "PingFang SC", "Noto Sans SC", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.55;
+}
+a { color: inherit; }
+.wrap { max-width: 1100px; margin: 0 auto; padding: 24px 16px 64px; }
+header.site {
+  display: flex; flex-wrap: wrap; gap: 12px; align-items: baseline;
+  justify-content: space-between; margin-bottom: 28px;
+}
+header.site h1 { font-size: 1.35rem; margin: 0; font-weight: 700; letter-spacing: .01em; }
+header.site p { margin: 0; color: var(--muted); font-size: .92rem; }
+.nav a { color: var(--muted); text-decoration: none; margin-left: 14px; font-size: .9rem; }
+.nav a:hover { color: var(--text); }
+.card {
+  background: var(--card); border: 1px solid var(--border); border-radius: 16px;
+  padding: 18px 18px 16px; box-shadow: var(--shadow);
+}
+.grid { display: grid; gap: 14px; }
+.grid-2 { grid-template-columns: repeat(2, minmax(0,1fr)); }
+.grid-4 { grid-template-columns: repeat(4, minmax(0,1fr)); }
+@media (max-width: 900px) {
+  .grid-4 { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .grid-2 { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  .grid-4 { grid-template-columns: 1fr; }
+}
+h2 { font-size: 1.05rem; margin: 28px 0 12px; }
+h3 { font-size: .95rem; margin: 0 0 10px; }
+.muted { color: var(--muted); font-size: .88rem; }
+.chip {
+  display: inline-block; padding: 2px 10px; border-radius: 999px;
+  font-size: 12px; font-weight: 700; line-height: 20px; letter-spacing: .02em;
+}
+.chip-多 { background: var(--red); color: #fff; }
+.chip-空 { background: var(--green); color: #fff; }
+.chip-中性, .chip-波动 { background: var(--orange); color: #fff; }
+.chip-off { background: var(--orange); color: #fff; }
+.chip-on { background: var(--red); color: #fff; }
+.list { margin: 8px 0 0; padding-left: 1.1rem; }
+.list li { margin: 4px 0; }
+.levels { width: 100%; border-collapse: collapse; font-size: .9rem; }
+.levels td { padding: 6px 0; border-bottom: 1px solid var(--border); vertical-align: top; }
+.levels td:first-child { color: var(--muted); width: 42%; }
+.links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+.links a {
+  display: inline-block; padding: 6px 10px; border-radius: 10px;
+  border: 1px solid var(--border); text-decoration: none; font-size: .82rem; color: var(--muted);
+}
+.links a:hover { color: var(--text); border-color: var(--muted); }
+.hero { display: grid; grid-template-columns: 1.4fr .9fr; gap: 14px; }
+@media (max-width: 800px) { .hero { grid-template-columns: 1fr; } }
+.gauge { width: 100%; max-width: 320px; }
+.proscons { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+@media (max-width: 700px) { .proscons { grid-template-columns: 1fr; } }
+.pro, .con { border-radius: 16px; border: 1px solid var(--border); padding: 14px 16px; background: var(--card); }
+.pro h3 { color: var(--red); }
+.con h3 { color: var(--green); }
+.bars { display: flex; flex-direction: column; gap: 8px; margin-top: 8px; }
+.bar-row { display: grid; grid-template-columns: 88px 1fr 48px; gap: 8px; align-items: center; font-size: .85rem; }
+.bar-track { height: 10px; background: var(--border); border-radius: 999px; overflow: hidden; }
+.bar-fill { height: 100%; background: var(--red); border-radius: 999px; }
+.seg { display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 0 12px; }
+.seg button {
+  border: 1px solid var(--border); background: transparent; color: var(--muted);
+  border-radius: 999px; padding: 6px 12px; cursor: pointer; font-size: .85rem;
+}
+.seg button.active, .seg button:hover { color: var(--text); border-color: var(--muted); }
+.kol { border-top: 1px solid var(--border); padding: 10px 0; }
+.kol .cat { color: var(--muted); font-size: .78rem; margin-bottom: 2px; }
+.kol .name { font-weight: 650; }
+.kol .point { color: var(--muted); font-size: .9rem; margin-top: 2px; }
+.report-item {
+  display: block; text-decoration: none; padding: 16px 18px; margin-bottom: 12px;
+  border-radius: 16px; border: 1px solid var(--border); background: var(--card);
+  box-shadow: var(--shadow);
+}
+.report-item:hover { border-color: var(--muted); }
+.report-item .top { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: space-between; }
+.report-item h2 { margin: 0; font-size: 1.05rem; }
+.footer { margin-top: 36px; color: var(--muted); font-size: .8rem; }
+.callout {
+  border-left: 3px solid var(--orange); padding: 10px 12px; margin: 10px 0;
+  background: color-mix(in srgb, var(--orange) 8%, transparent); border-radius: 0 10px 10px 0;
+}
+.quote {
+  margin: 12px 0 0; padding: 12px 14px; border-radius: 12px; border: 1px solid var(--border);
+  color: var(--muted); font-size: .9rem; font-style: italic;
+}
+.quote cite { display: block; margin-top: 8px; font-style: normal; font-size: .8rem; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="site">
+    <div>
+      <h1>KOL观点日报</h1>
+      <p>公开站 · 红=多 · 绿=空 · 无追踪</p>
+    </div>
+  </header>
+  
+        <a class="report-item" href="reports/2026-11-21.html">
+          <div class="top">
+            <h2>KOL观点日报 2026-11-21（含大宗商品）</h2>
+            <span class="chip chip-波动">标普七连阴进入修正+SEC调查英伟达，BTC失守6万，黄金与科技同步承压</span>
+          </div>
+          <p class="muted" style="margin:8px 0 0">美股以明确的风险出清收周：Kobeissi称标普500收跌3.7%、本周市值蒸发约6万亿美元，为2020年疫情以来首次七连阴，标普与道指自高点回撤进入修正（−10%）；纳指综合指数转负于2026年，抹去此前约+19%的年内涨幅。盘中标普一度跌破7,000（4月15日以来首次），纳指100当日约−4.3%，催化剂是路透称SEC对英伟达启动潜在会计问题调查，以及特朗普宣称将对赴海外建数据中心的美国公司征收“巨额税”。CoinGecko北京时间07:41 BTC约58,931美元（24h −4.54%）、ETH约1,621（−7.27%）、SOL约69.18（−5.19%）；多路账号称BTC跌破60,000、盘中见到59,000下方。黄金被写成“为筹措美元而卖”，避险属性本窗口失效。</p>
+        </a>
+        <a class="report-item" href="reports/2026-11-20.html">
+          <div class="top">
+            <h2>KOL观点日报 2026-11-20（含大宗商品）</h2>
+            <span class="chip chip-波动">Anthropic上市分流+古尔斯比未排除50bp，科技、贵金属与加密同步承压</span>
+          </div>
+          <p class="muted" style="margin:8px 0 0">美股先扬后抑：盘前纳指期货一度涨超2%，Anthropic（$ANT）以83美元定价并高开后科技股回吐。Kobeissi称标普500连跌第6日、自10月6日高点市值蒸发超6万亿美元，纳指100自纪录高点回撤15%，盘中标普跌破7200（5月5日以来首次）。CoinDesk称ANT开盘111.50、最高115.10、收97.17美元（较发行价+17.1%，较开盘−12.9%）。芝加哥联储主席、2026年票委古尔斯比表示未排除12月加息50个基点（Phyrex），Bitwux称沃勒再次强调12月应加50bp而非25bp，并把12/9 FOMC称作今年最大单点风险。黄金在约3,700美元附近挣扎、周三已跌破3,800（Kitco），Schiff称金价跌破3,680、银价跌破44.50（2025年9月以来未见）；Brent收91.98、WTI收83.21美元/桶（staunovo）。CoinGecko北京时间07:43 BTC约61,733美元（24h −1.9%）、ETH约1,748（−1.5%）、SOL约72.96（−0.8%）；WatcherGuru称比特币跌破62,000。除CoinGecko现价外，其余数字均为帖文声称。</p>
+        </a>
+        <a class="report-item" href="reports/2026-11-19.html">
+          <div class="top">
+            <h2>KOL观点日报 2026-11-19（含大宗商品）</h2>
+            <span class="chip chip-波动">鹰派纪要+沃勒放风50bp加息，风险资产与贵金属同步承压</span>
+          </div>
+          <p class="muted" style="margin:8px 0 0">美联储11/18公布的会议纪要偏鹰：Kobeissi/zerohedge称几乎全体官员认为“进一步行动”合适，少数认为12月加息可能超过25个基点，Kobeissi总结“12月加息路径已经铺好”；沃勒称若不为1月加息做铺垫、12月就应加50个基点，并称通胀“走错方向、正在扩散”（zerohedge），Phyrex把当日回落主因归于这段发言。美元走强、20年期美债收益率触及5.459%（zerohedge）。黄金跌破3,750美元/盎司、白银跌破45美元，美元创2025年4月以来新高（Kobeissi）；WatcherGuru称黄金跌破3,745、金银合计市值蒸发约8,000亿美元。美油被Kobeissi写成跌破82美元/桶（8月27日以来首次），汽油单日跌幅称18年最大；staunovo称Brent收91.95、WTI收83.26美元/桶，交易者对波斯湾紧张和油轮遇袭“耸肩”，转向供给过剩（Ole/zerohedge）。NVDA财报超预期的盘后反弹被回吐：Kobeissi称股价转跌、较10月6日高点−36%；SpotGamma称期权定价最大约7.2%波动、盘前仅+3%，“定价的是缓解而非信念”；Moody’s将展望由正面下调至稳定（zerohedge）。Anthropic IPO定价83美元，Kobeissi称融资加私募超过940亿美元、为史上最大IPO，WatcherGuru转述彭博估值为1.5万亿美元，11/19开盘。CoinGecko北京时间07:47 BTC约62,982美元（24h −3.0%）、ETH约1,777（−2.5%）、SOL约73.65（−1.7%）。lookonchain称BTC现货ETF 1日净流出4,216枚（约−2.69亿美元）、7日−14,277枚（约−9.12亿美元）。除CoinGecko现价外，其余数字均为帖文声称。</p>
+        </a>
+        <a class="report-item" href="reports/2026-11-18.html">
+          <div class="top">
+            <h2>KOL观点日报 2026-11-18（含大宗商品）</h2>
+            <span class="chip chip-波动">盘中Risk-Off、盘后因NVDA超预期转向谨慎偏多（董事会明确不让黄仁勋回归＋SEC调查仍在）</span>
+          </div>
+          <p class="muted" style="margin:8px 0 0">黄仁勋辞职后首份NVDA财报全面超预期：Kobeissi/吴说称Q3营收1,158亿美元（同比+103%）、调整后EPS 2.68美元、数据中心营收1,076亿美元、Q4指引1,300亿美元并新增1,500亿美元回购，FY2028收入增速指引由70%上调至75%（暗示年收入约7,280亿美元）；Kobeissi称纳指100期货盘后一度+1.3%，WatcherGuru称股价盘后涨逾5%。但电话会上董事会主席表示不打算让黄仁勋回归、拒答相关提问（UW/Kobeissi），且财报前WSJ称SEC已就信息披露是否误导投资者立案。美股盘中仍是避险日：Kobeissi称标普−1.6%、纳指100−2.0%、道指一度跌超1,000点，WTI+1.0%、黄金+0.9%。10月零售销售略超预期（headline 0.2%/预期0.1%，control 0.6%/预期0.3%，zerohedge）。CoinGecko北京时间07:36 BTC约64,854美元（24h −0.2%）、ETH约1,821（+0.1%）、SOL约75.00（+5.3%）。Kitco称黄金在零售销售后跌至约3,848美元、靠近一年低点；staunovo称Brent收93.14、WTI收86.01美元/桶。</p>
+        </a>
+        <a class="report-item" href="reports/2026-11-17.html">
+          <div class="top">
+            <h2>KOL观点日报 2026-11-17（含大宗商品）</h2>
+            <span class="chip chip-波动">Risk-Off（NVDA董事会拒绝黄仁勋回归＋加息预期升温＋VIX期限结构高于11/5崩盘水平＋NVDA财报夜）</span>
+          </div>
+          <p class="muted" style="margin:8px 0 0">周一（11/16）美股再遭重击：CNBC报道NVDA董事会不考虑让黄仁勋回归，Kobeissi称纳指100盘中跌至−2.3%、NVDA较10月6日高点跌34%，WatcherGuru称美股单日蒸发1.4万亿美元；SpotGamma称VIX期限结构已高于11/5崩盘时水平，zerohedge称标普一天走完整周隐含波动。高盛交易台称客户对AI的情绪是‘很久以来最负面’，Burry加倍纳指100看跌期权、重开SMH看跌期权（UW）。利率端偏鹰：克利夫兰联储Hammack支持‘小步、持续加息’，欧元跌至19个月低点（staunovo），Kitco称加息押注升温压制金银。CoinGecko 北京时间07:45 BTC约64,805美元（24h −0.8%）、ETH约1,815（−1.1%）、SOL约70.99（−2.2%），加密在美股大跌中相对抗跌，但ETF仍在流出（lookonchain：BTC 7日−10亿美元）。大宗：Brent反弹到96.6（Ole Hansen），Javier称海湾原油外运较10月少约200万桶/日，HFI看升水走高；但高盛看2027年过剩，柴油跌破6美元。黄金/白银继续下跌，Kitco称黄金下方到3,200–3,500美元前缺乏支撑，cfsq143称现货白银跌破47。最大变量：今晚21:30（北京时间）10月零售销售，以及周二美东盘后（北京时间周三清晨）NVDA财报。</p>
+        </a>
+        <a class="report-item" href="reports/2026-11-16.html">
+          <div class="top">
+            <h2>KOL观点日报 2026-11-16（含大宗商品）</h2>
+            <span class="chip chip-波动">偏Risk-Off（加密反弹未反转＋联储偏鹰＋霍尔木兹‘关闭’＋事件周）</span>
+          </div>
+          <p class="muted" style="margin:8px 0 0">周末（11/15）加密市场先跌后弹：WatcherGuru称BTC一度跌破63,000，cfsq143称最低打到61,956，随后收回65,000（WatcherGuru称1.3亿美元空单爆仓）；CoinGecko 北京时间07:45 BTC约65,297美元（24h +2.7%）、ETH约1,835.54（+5.0%）、SOL约72.62（+4.6%）。多数大V认为这是踩踏清算而非长线抛售（Phyrex称长期持有者仍在增持），但cfsq143强调‘只是反弹不是反转’。周日美股期货因FT报道黄仁勋考虑回归NVDA而上涨（Kobeissi：标普+0.3%、纳指100+0.7%、WTI −0.5%）；但财长贝森特要求NVDA‘大幅改组’并找外部CEO，美方调查芯片违规销往中国，Burry质疑NVDA收入口径调整。本周事件密集：周一沃什讲话、周二10月零售销售和NVDA财报、周三FOMC纪要，以及Anthropic IPO（拟募资904亿美元）。大宗：zerohedge称伊朗革命卫队宣布霍尔木兹‘关闭’、伊朗再袭巴林，staunovo称霍尔木兹以东又有油轮触雷起火、乌克兰称已瘫痪俄罗斯55%以上炼能；但zerohedge转述高盛称原油27美元战争溢价已消失。黄金方面，Kobeissi称中国央行10月增持26吨（2023年8月以来最多），cfsq143和SYU77996则认为短线破位、不宜追多。</p>
+        </a>
+        <a class="report-item" href="reports/2026-11-15.html">
+          <div class="top">
+            <h2>KOL观点日报 2026-11-15（含大宗商品）</h2>
+            <span class="chip chip-波动">Risk-Off（加密周末踩踏＋加息预期＋地缘风险）</span>
+          </div>
+          <p class="muted" style="margin:8px 0 0">周六（11/14）美股休市，加密市场出现周末踩踏：BTC先后跌破67,000、66,000、65,000（WatcherGuru/Kobeissi），Phyrex称Binance一度跌到63,944；CoinGecko 北京时间07:33 BTC约63,604美元（24h −6.7%）、ETH约1,742.93（−9.4%）、SOL约69.15（−11.2%）。WatcherGuru称24小时加密总市值蒸发2,300亿美元，Kobeissi称24小时爆仓超过20亿美元、BTC三天跌了约11,000美元。美股方面焦点仍是NVDA：要求黄仁勋复职的请愿签名超过10万（马斯克领衔），两名合计持股超20亿美元的投资者呼吁董事会让他回来。白宫确认特朗普、习近平、普京下周在中国举行三方会晤（UW/zerohedge/Javier）。大宗：伊朗称霍尔木兹又有油轮触雷起火（staunovo），HFI称原油‘可能已经见底’，但Javier称伊拉克10月产量升至7年高点约460万桶/日；黄金周线大跌、跌破3,900，Kitco多位评论作者看3,800甚至3,500；欧洲极地涡旋扰动带来寒潮（JKemp/Burggraben），对天然气偏多。</p>
+        </a>
+        <a class="report-item" href="reports/2026-11-14.html">
+          <div class="top">
+            <h2>KOL观点日报 2026-11-14（含大宗商品）</h2>
+            <span class="chip chip-波动">Risk-Off（PPI偏热＋加息预期升温＋加密续跌）</span>
+          </div>
+          <p class="muted" style="margin:8px 0 0">周五（11/13）市场继续偏防守：10月PPI同比6.5%，为2022年11月以来最高（Kobeissi），环比0.3%略低于预期（吴说），但古尔斯比、戴利都表示可能还要加息，staunovo转述称12月加息已基本定价、1月可能再加；CoinDesk称加息概率约88%。Ole：DXY升至18个月高点，本周2年期升34bp至4.85%、10年期升26bp至5.12%。NVDA本周跌13%，是2025年4月以来最差的一周（zerohedge）；董事会据报接触Arm CEO Rene Haas（FT），马斯克表示支持请黄仁勋回归。BTC跌破70,000后一度跌到68,000以下（CoinGecko 北京时间07:33约68,114，24h −4.5%），BTC ETF连续6日净流出。美国FAA周五下午因通信故障全国停飞（UW/WatcherGuru）。大宗：Brent结算95.84（staunovo），IRGC称两艘油轮在霍尔木兹触雷；欧洲天然气库存处于同期创纪录的低位、价格大涨（JKemp）；黄金从13个月低点反弹、测试3,900（Kitco）；铜跌到4个月低点（Ole）。</p>
+        </a>
+        <a class="report-item" href="reports/2026-11-13.html">
+          <div class="top">
+            <h2>KOL观点日报 2026-11-13（含大宗商品）</h2>
+            <span class="chip chip-波动">Risk-Off（黄仁勋辞职＋美元/短端利率走强）</span>
+          </div>
+          <p class="muted" style="margin:8px 0 0">黄仁勋周四（11/12）宣布辞去英伟达总裁、CEO及董事职务，CFO Colette Kress出任临时CEO；NVDA盘前跌10%至156美元，盘中最低148.80（贴近SpotGamma标出的150看跌墙），随后从低点反弹约9%，标普一度收复全部跌幅（Kobeissi/SpotGamma）；收盘后路透又曝出第二名员工关系、DOJ同时介入调查（UW/WatcherGuru）。宏观偏鹰：10月核心CPI三个月年化3.75%，为2024年4月以来最高（Kobeissi），哈马克和戴利都表态支持继续加息，2年期较上周升35bp、美元走强（Ole/zerohedge）。BTC失守72,000（CoinGecko 北京时间07:38约71,255，24h −3.5%），ETF已连续5日净流出。黄金跌破4,000、现货一度跌到3,864（Kitco）；原油整体仍受供给恢复压制（Javier：到岸油价较9月中高点跌35%–40%），但特朗普召回万斯、伊朗港口城市遇袭，带来跳空风险。</p>
+        </a>
+        <a class="report-item" href="reports/2026-11-12.html">
+          <div class="top">
+            <h2>KOL观点日报 2026-11-12（含大宗商品）</h2>
+            <span class="chip chip-波动">Risk-Off（NVDA关键人风险爆发＋联储加息定价）</span>
+          </div>
+          <p class="muted" style="margin:8px 0 0">美股周三白天大幅反弹（Kobeissi：纳指100涨超3%、较6天前低点+9%，标普重回7,600上方；CoreWeave涨超16%），但收盘后NYT曝黄仁勋第二段婚外情、WSJ称英伟达董事会准备罢免他，NVDA盘后跌4%–10%（WatcherGuru/Kobeissi），预测市场的离任概率升到约69%–85%（zerohedge/Kobeissi）。利率端仍偏鹰：BofA警告12月或加息50bp，WarrenPies称至少还要再加2次、2年期将升破5%。BTC在73,000上方横盘（CoinGecko 北京时间07:39约73,817，24h +0.2%），ETF仍在净流出，稳定币供应下降142亿美元。原油：沙特10月产量恢复到战前水平（10.56mb/d），Brent结算92.76、WTI 86.53（staunovo）；金价守住4,000美元附近，钯金反弹6.4%，LME铝出现几十年来最严重的逼仓。</p>
+        </a>
+        <a class="report-item" href="reports/2026-11-11.html">
+          <div class="top">
+            <h2>KOL观点日报 2026-11-11（含大宗商品）</h2>
+            <span class="chip chip-波动">Risk-Off（热CPI＋鹰派联储＋NVDA续跌）</span>
+          </div>
+          <p class="muted" style="margin:8px 0 0">10月CPI超预期（环比+0.4%、核心+0.3%，均高于预期），美10年期收益率重回5%上方，Kobeissi称市场对12月加息25bp定价约84%、50bp约11%；沃勒称可考虑50bp，洛根称至少还要加两次。NVDA再跌6–7%、年内涨幅全部抹去，市值被微软反超；BTC跌破73,000（CoinGecko 北京时间07:36约73,608，24h −2.0%）。油价先跌后反弹（WTI结算86.04、Brent 91.49，staunovo），霍尔木兹油轮接连起火、美伊“分歧仍大”；金银因加息预期回落。</p>
+        </a>
+        <a class="report-item" href="reports/2026-11-10.html">
+          <div class="top">
+            <h2>KOL观点日报 2026-11-10（含大宗商品）</h2>
+            <span class="chip chip-波动">Risk-On 修复（CPI前仍负gamma，谨慎）</span>
+          </div>
+          <p class="muted" style="margin:8px 0 0">周一“黄仁勋冲击”被市场消化：NVDA开盘跌约6.5%，但Kobeissi称纳指100收涨超3%、标普+2.1%、VIX单日跌超20%，WatcherGuru称美股单日增加约2万亿美元市值。油价因美伊外交进展大跌（Kobeissi：WTI −3.5%、Brent −4%；staunovo：Brent结算92.57），JKemp称原油空头已掌控期货盘面。黄金反弹而BTC仍在75,000附近疲弱（CoinGecko 北京时间08:01约75,277美元），ETF继续净流出。今晚CPI落地时SPX仍处负gamma（SpotGamma），0DTE宜轻仓。</p>
+        </a>
+        <a class="report-item" href="reports/2026-11-09.html">
+          <div class="top">
+            <h2>KOL观点日报 2026-11-09（含大宗商品）</h2>
+            <span class="chip chip-波动">Risk-Off / 防守（期指盘初企稳）</span>
+          </div>
+          <p class="muted" style="margin:8px 0 0">周末两大冲击：英伟达CEO黄仁勋承认与涉嫌中国间谍者有婚外关系、董事会启动调查；Kobeissi称周日开盘纳指期货先跌超1%、7分钟内收复。加密周末再遭约10亿美元清算（WatcherGuru称BTC跌破7.4万），CoinGecko 08:07(北京时间)报BTC约74,465美元。原油地缘溢价再起：HFI称周末约7艘油轮遇袭、Javier称利雅得阿美大楼遇袭，但Javier也指11月初中东（除伊朗）装船未降；Ole称对冲基金在全部25个商品期货上净卖出、净多头砍33%。本周CPI(周二)/OPEC月报(周三)/PPI(周五)，维持防守。</p>
+        </a>
+        <a class="report-item" href="reports/2026-11-08.html">
+          <div class="top">
+            <h2>KOL观点日报 2026-11-08（含大宗商品）</h2>
+            <span class="chip chip-波动">Risk-Off / 防守</span>
+          </div>
+          <p class="muted" style="margin:8px 0 0">美股科技/AI抛售后余波仍在：SpotGamma称周四标普约−4.36%，Kobeissi称CBOE认沽成交创纪录约1123万张；Burry质疑华尔街“一天就喊底”。原油同时出现战争溢价回吐（zerohedge称对冲基金减持Brent约66亿美元）与霍尔木兹/阿曼湾封锁摩擦。黄金叙事仍偏多，Tavi称白银较200日均线低约30%。今日周日、美股周五已收盘，短线维持防守。</p>
+        </a>
+        <a class="report-item" href="reports/2026-11-07.html">
+          <div class="top">
+            <h2>KOL观点日报 2026-11-07（含大宗商品）</h2>
+            <span class="chip chip-波动">Risk-Off / 防守</span>
+          </div>
+          <p class="muted" style="margin:8px 0 0">美股科技/AI抛售后余波未消；非农大超预期抬升加息赔率；油价高波动、在途原油创新高；黄金偏多但受非农压制。短线维持防守。</p>
+        </a>
+        <a class="report-item" href="reports/2026-11-06.html">
+          <div class="top">
+            <h2>KOL观点日报 2026-11-06（含大宗商品）</h2>
+            <span class="chip chip-波动">Risk-Off / 防守</span>
+          </div>
+          <p class="muted" style="margin:8px 0 0">美股科技/AI急跌外溢加密；油价高波动；黄金偏强。短线宜降杠杆。</p>
+        </a>
+  <footer class="footer"><p>由 /workspace/kol_daily 每日生成并发布到 GitHub Pages。</p></footer>
+</div>
+</body>
+</html>
